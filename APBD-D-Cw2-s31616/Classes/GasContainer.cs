@@ -1,16 +1,18 @@
-﻿namespace APBD_D_Cw2_s31616.Classes;
+﻿using APBD_D_Cw2_s31616.Interfaces;
 
-public class GasContainer(int height, int depth, int mass, int capacity) : Container(height, depth, mass, capacity, 'G')
+namespace APBD_D_Cw2_s31616.Classes;
+
+public class GasContainer(int height, int depth, int mass, int capacity) : Container(height, depth, mass, capacity, 'G'), IHazardNotifier
 {
     
-    public override void LoadContainer(int newCargoMass)
+    public override void LoadContainer(int newCargoMass, Cargo cargo)
     {
-        base.LoadContainer(newCargoMass);
+        base.LoadContainer(newCargoMass, cargo);
         
     }
     
     public override void UnloadContainer()
     {
-        throw new NotImplementedException();
+        CargoMass /= 20;
     }
 }

@@ -1,16 +1,20 @@
 ﻿namespace APBD_D_Cw2_s31616.Classes;
 
-public class CoolerContainer(int height, int depth, int mass, int capacity) : Container(height, depth, mass, capacity, 'C')
+public class CoolerContainer(int height, int depth, int mass, int capacity, string cargoIntended, double temperature) : Container(height, depth, mass, capacity, 'C')
 {
+
+    public string CargoIntended { get; set; } = cargoIntended;
+    public double ContainerTemperature { get; set; } = temperature;
     
-    public override void LoadContainer(int newCargoMass)
+    public override void LoadContainer(int newCargoMass, Cargo cargo)
     {
-        base.LoadContainer(newCargoMass);
+        base.LoadContainer(newCargoMass, cargo);
         
     }
     
     public override void UnloadContainer()
     {
-        throw new NotImplementedException();
+        CargoMass = 0;
+        CargoName = null;
     }
 }
